@@ -1,7 +1,7 @@
 # Веб-сервер для страниц-заглушек
 Страницы заглушки + конфиги nginx для быстрого развёртывания веб-сервера со страницами-заглушками
 
-# Создание виртуальной машины и настройка сети
+## Создание виртуальной машины и настройка сети
 
 Создаём виртуалку и настраиваем на ней сеть (абстрактный vmsh в вакууме, замените на vzctl и вместо названия виртуалки используйте CTID)
 
@@ -17,7 +17,7 @@
 
     vmsh start nginx_block
 
-# Настройка с помощью ansible
+## Настройка с помощью ansible
 
 генерируем ssh-ключи, (нужно только если они отсутствуют!).
 
@@ -40,14 +40,14 @@
     curl https://raw.githubusercontent.com/carbonsoft/reductor_blockpages/master/nginx_block.yml -o tasks/nginx_block.yml
     ansible-playbook tasks/nginx_block.yml
 
-# Если ansible использовать не выходит
+## Если ansible использовать не выходит
 
     ssh root@10.50.140.73
     yum -y install epel-release
     yum -y install nginx git
     git clone https://github.com/carbonsoft/reductor_blockpages.git
 
-# Немного ручной работы (в любом случае)
+## Немного ручной работы (в любом случае)
 
     ssh root@10.50.140.73
     cd reductor_blockpages/
