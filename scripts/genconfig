@@ -1,0 +1,7 @@
+#!/bin/bash
+for param in "$@"; do
+	[[ "$param" = *=* ]] && eval $param
+done
+while IFS= read line; do
+	eval "echo \"$line\""
+done < $tmplt > $conf
