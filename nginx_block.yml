@@ -1,0 +1,12 @@
+- hosts: [nginx_block]
+  tasks:
+  - name: epel release is at the latest version
+    yum: name=epel-release state=latest
+  - name: nginx is at the latest version
+    yum: name=nginx state=latest
+  - name: git is at the latest version
+    yum: name=git state=latest
+  - git: repo=https://github.com/carbonsoft/reductor_blockpages.git
+         dest=/root/reductor_blockpages/
+         version=master
+         clone=yes
