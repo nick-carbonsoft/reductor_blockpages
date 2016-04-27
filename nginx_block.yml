@@ -1,7 +1,19 @@
 - hosts: [nginx_block]
   tasks:
+  - name: libselinux-python release is at the latest version
+    yum: name=libselinux-python state=latest
+  - name: vim is at the latest version
+    yum: name=vim state=latest
   - name: epel release is at the latest version
     yum: name=epel-release state=latest
+  - name: epel http cause https frequently have access problems
+    copy: src=../templates/epel.repo dest=/etc/yum.repos.d/epel.repo
+  - name: bash-completion is at the latest version
+    yum: name=bash-completion state=latest
+  - name: ntp is at the latest version
+    yum: name=ntp state=latest
+  - name: ntpdate is at the latest version
+    yum: name=ntpdate state=latest
   - name: nginx is at the latest version
     yum: name=nginx state=latest
   - name: git is at the latest version
