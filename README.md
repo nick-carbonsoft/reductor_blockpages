@@ -94,3 +94,9 @@
 применяем настройки    
 
     service nginx restart
+
+разрешаем 80 и 443 порт в файрволе:
+
+    cp /etc/sysconfig/iptables{,.bk}
+    curl https://raw.githubusercontent.com/carbonsoft/reductor_blockpages/master/templates/iptables > /etc/sysconfig/iptables
+    service iptables restart
