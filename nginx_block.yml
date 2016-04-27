@@ -1,22 +1,26 @@
 - hosts: [nginx_block]
   tasks:
-  - name: libselinux-python is at the latest version
+  - name: libselinux-python for ansible work with selinux
     yum: name=libselinux-python state=latest
-  - name: vim is at the latest version
+  - name: install vim
     yum: name=vim state=latest
-  - name: epel release is at the latest version
+  - name: install epel-release
     yum: name=epel-release state=latest
   - name: epel http cause https frequently have access problems
     copy: src=../templates/epel.repo dest=/etc/yum.repos.d/epel.repo
-  - name: bash-completion is at the latest version
+  - name: bash-completion for better tab-tabs
     yum: name=bash-completion state=latest
-  - name: ntp is at the latest version
+  - name: ntp to have a list of ntp-servers
     yum: name=ntp state=latest
-  - name: ntpdate is at the latest version
+  - name: ntpdate to have actual time on server
     yum: name=ntpdate state=latest
-  - name: nginx is at the latest version
+  - name: autostart ntpdate
+    service: name=ntpdate enabled=yes
+  - name: install nginx
     yum: name=nginx state=latest
-  - name: git is at the latest version
+  - name: autostart nginx
+    service: name=nginx enabled=yes
+  - name: install git
     yum: name=git state=latest
   - git: repo=https://github.com/carbonsoft/reductor_blockpages.git
          dest=/root/reductor_blockpages/
