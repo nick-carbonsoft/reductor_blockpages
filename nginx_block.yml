@@ -6,8 +6,6 @@
     yum: name=vim state=latest
   - name: install epel-release
     yum: name=epel-release state=latest
-  - name: epel http cause https frequently have access problems
-    copy: src=../templates/epel.repo dest=/etc/yum.repos.d/epel.repo
   - name: bash-completion for better tab-tabs
     yum: name=bash-completion state=latest
   - name: ntp to have a list of ntp-servers
