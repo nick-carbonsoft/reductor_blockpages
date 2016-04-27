@@ -1,6 +1,6 @@
 - hosts: [nginx_block]
   tasks:
-  - name: libselinux-python release is at the latest version
+  - name: libselinux-python is at the latest version
     yum: name=libselinux-python state=latest
   - name: vim is at the latest version
     yum: name=vim state=latest
