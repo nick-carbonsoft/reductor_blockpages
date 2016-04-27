@@ -45,6 +45,16 @@
     curl https://raw.githubusercontent.com/carbonsoft/reductor_blockpages/master/nginx_block.yml -o tasks/nginx_block.yml
     ansible-playbook tasks/nginx_block.yml
 
+### Возможные проблемы и способы их исправления
+
+#### Включен selinux и ssh по ключу не проходит
+
+    restorecon -R -v /root/.ssh
+
+#### cannot retrive epel metalink при установке пакетов
+
+    sed -i /etc/yum.repos.d/epel.release -e 's/https/http/g'
+
 ## Если ansible использовать не выходит
 
     ssh root@10.50.140.73
