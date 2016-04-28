@@ -14,3 +14,5 @@ cert:
 	openssl req -new -x509 -days 9999 -nodes -newkey rsa:2048 -out /etc/nginx/ssl/cert.pem -keyout /etc/nginx/ssl/cert.key
 nginx.conf:
 	cp -v templates/nginx.conf /etc/nginx/nginx.conf
+sysctl:
+	./scripts/patch_sysctl.sh
