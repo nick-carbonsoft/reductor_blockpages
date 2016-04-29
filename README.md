@@ -51,14 +51,11 @@
 
     restorecon -R -v /root/.ssh
 
-#### cannot retrive epel metalink при установке пакетов
-
-    sed -i /etc/yum.repos.d/epel.release -e 's/https/http/g'
-
 ## Если ansible использовать не выходит
 
     ssh root@10.50.140.73
     yum -y install epel-release
+    sed -i /etc/yum.repos.d/epel.repo -e 's/https/http/g'
     yum -y install nginx git
     git clone https://github.com/carbonsoft/reductor_blockpages.git
 
