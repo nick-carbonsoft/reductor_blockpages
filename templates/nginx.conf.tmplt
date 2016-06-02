@@ -1,15 +1,15 @@
 server {
-    listen       $ip:80;
-    listen       $ip:443 ssl;
+    listen       $ip:80;			# для http-редиректов
+    listen       $ip:443 ssl;			# для DNS-спуфинга https-запросов.
 
-    ssl_certificate      ssl/cert.pem;
-    ssl_certificate_key  ssl/cert.key;
+    ssl_certificate      ssl/cert.pem;		# сертификаты
+    ssl_certificate_key  ssl/cert.key;		# и ключи, которые генерим командой make cert
     ssl_session_timeout  5m;
     ssl_protocols  SSLv2 SSLv3 TLSv1;
     ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
     ssl_prefer_server_ciphers   on;
 
-    root   $root;
-    error_page 404 = /index.html;
-    index index.html;
+    root   $root;				# папка где лежит сама HTML'ка с заглушкой
+    error_page 404 = /index.html;		# на все GET-запросы вместо 404 отдаём страницу-заглушку с кодом 200.
+    index index.html;				# если GET-запроса нет или /, отдаём index.html
 }
