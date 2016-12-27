@@ -5,7 +5,7 @@
 rm -rf backup/
 mkdir -p backup/
 for app in "$@"; do
-    [ -f ./nginx/"$app".conf ] && mv -f /etc/nginx/conf.d/*.conf backup
+    [ -f ./nginx/"$app".conf ] && mv -f /etc/nginx/conf.d/"$app".conf backup
 done
 
 for config in "${@:-rkn}"; do
