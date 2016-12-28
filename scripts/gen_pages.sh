@@ -5,7 +5,7 @@
 mkdir -p backup/
 
 for blockpage in "$@"; do
-    [ -f $mainroot/"$blockpage" ] && mv -f $mainroot/"$blockpage" backup/
+        [ -d $mainroot/"$blockpage" ] && mv -f $mainroot/"$blockpage" backup/
 done
 
 for config in "${@:-rkn}"; do
