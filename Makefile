@@ -9,8 +9,7 @@ billing_pages:
 billing_config:
 	./scripts/gen_config.sh noauth negbal blocked
 cert:
-	mkdir -p /etc/nginx/ssl
-	chmod 700 /etc/nginx/ssl
+	mkdir -m 700 -p /etc/nginx/ssl
 	echo "Common name лучше установить в виде IP адреса машины:"
 	ip -4 a
 	openssl req -new -x509 -days 9999 -nodes -newkey rsa:2048 -out /etc/nginx/ssl/cert.pem -keyout /etc/nginx/ssl/cert.key
